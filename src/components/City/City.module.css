@@ -1,0 +1,30 @@
+.citySticky{
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  height: 4%;
+  background-color: #fff;
+ display: flex;
+ justify-content: center;
+}
+.degrees{
+  text-align: center;
+  font-size: 3rem;
+  padding: 1%;
+  background-color: rgb(115, 141, 173);
+}
+.descripWeather{
+  text-align: center;
+  font-size: 1rem;
+  background-color: rgb(153, 223, 220);
+  color:black;
+  padding: 1rem;
+}
+
+.text1{
+  margin-top: 0.6rem;
+  font-size: 1.8rem;
+}
+.icon{
+  margin-left: 1rem;
+}
