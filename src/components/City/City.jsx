@@ -47,7 +47,7 @@ const City = (props) => {
 
   
     const getData = async () => {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city.value}&appid=a63740baaa8c5f06d8ce4273818d9d10&units=metric&lang=ru`
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city.value}&appid=${process.env.REACT_APP_API_KEY}&units=metric&lang=ru`
       console.log(url)
       const response = await fetch(url)
       if (!response.ok){
