@@ -11,12 +11,12 @@
   text-align: center;
   font-size: 3rem;
   padding: 1%;
-  background-color: rgb(115, 141, 173);
+  background-color: rgba(1, 124, 32, 0.575);
 }
 .descripWeather{
   text-align: center;
   font-size: 1rem;
-  background-color: rgb(153, 223, 220);
+  background-color: rgba(6, 158, 44, 0.486);
   color:black;
   padding: 1rem;
 }

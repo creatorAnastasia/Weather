@@ -106,6 +106,13 @@ const City = (props) => {
     }
     getData()
   }, [props.city.value])
+  function capitalize(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+  function getIcon() {
+    const icon = data ? data.weather[0].icon : '';
+    return `http://openweathermap.org/img/w/${icon}.png`
+  }
   function getDegrees() {
     if (!data) {
       return ''
@@ -152,10 +159,10 @@ const City = (props) => {
       </header>
      
       <div className={cl.degrees}>
-        {getDegrees()}
+        {getDegrees()} <img src={getIcon(0)}/>
       </div>
       <div className={cl.descripWeather}>
-        {descripWeather}
+        {capitalize(descripWeather)}
       </div>
     </>)
   }

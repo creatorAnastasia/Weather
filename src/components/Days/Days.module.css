@@ -1,6 +1,6 @@
 .days{
   padding: 1rem;
-  background-color: rgb(162, 191, 231);
+  background-color: rgba(8, 168, 48, 0.466);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,5 +10,9 @@
   padding: 0.5rem;
   border-bottom: solid 0.1rem ;
   font-size: 1.3rem;
-
+  
+}
+.date{
+  font-size: 0.9rem;
+  color: rgb(34, 36, 37);
 }
