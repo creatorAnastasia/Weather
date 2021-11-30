@@ -2,6 +2,11 @@ import React,{ useEffect, useState }  from 'react';
 import cl from './Days.module.css';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
+import WeatherBlock from '../Days/WeatherBlock/WeatherBlock'
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import { getIcon } from '../Icon/Icon';
+import WeatherDetals from '../Days/WeatherDetals/WeatherDetals'
 dayjs.locale('ru')
 
 const Days = (props)=> {
@@ -43,11 +48,11 @@ const Days = (props)=> {
 }, [props.city.value])
 
 
-function getIcon(s) {
-  const icon = date ? date.list[s].weather[0].icon : '';
-  return `http://openweathermap.org/img/w/${icon}.png`
+function getItemIcon(s){
+  const icon = date ? date.list[s].weather[0].main : '';
+  return getIcon(icon);
 }
-// const weatherTomor=getDegrees(date.list[0].main.temp)
+
 function getDegrees(s) {
   if (!date) {
     return 'err'
@@ -58,42 +63,95 @@ function getDegrees(s) {
   }
   return numb.toString()+'°C'
 }
+function getDecr(s){
+  const descr = date ? date.list[s].weather[0].description : '';
+  return descr;
+}
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 'auto',
+  bgcolor: 'background.paper',
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
 
-
-  return(<>
-    <div className={cl.days}>
-      <div className={cl.date}>
-         {tomorrow}
-      </div>
-          <div className={cl.day}>
-         Завтра {getDegrees(0)} <img src={getIcon(0)}/>
-         </div>
-      <div className={cl.date}>
-         {day2}
-      </div>
-          <div className={cl.day}>
-        {dayWeek2} {getDegrees(8)}<img src={getIcon(8)}/>
-          </div>
-      <div className={cl.date}>
-         {day3}
-      </div>
-           <div className={cl.day}>
-           {dayWeek3} {getDegrees(16)}<img src={getIcon(16)}/>
-            </div>
-       <div className={cl.date}>
-         {day4}
-      </div>
-          <div className={cl.day}>
-          {dayWeek4} {getDegrees(24)}<img src={getIcon(24)} />
-            </div>
-            <div className={cl.date}>
-         {day5}
-      </div>
-      <div className={cl.day}>
-      {dayWeek5} {getDegrees(32)}<img src={getIcon(32)} />
-      </div>
-    </div>
-  </>  )
+const [open, setOpen] = useState(false);
+const handleOpen = () => {
+  setOpen(true);
+};
+const handleClose = () => {
+  setOpen(false);
+};
+  return(
+    <div className={cl.days}> 
+   <WeatherBlock  dayWeek={"Завтра"}
+                  day={tomorrow} 
+                  degrees={getDegrees(0)} 
+                  icon = {getItemIcon(0)} 
+                  onClick={handleOpen} />
+   <Modal
+      open={open}
+      onClose={handleClose}>
+       <Box sx={{...style }}>
+         <WeatherDetals 
+            name={props.city.name}
+            dayWeek={"Завтра"}
+            day={tomorrow} 
+            degrees12={getDegrees(0)} 
+            icon12 = {getItemIcon(0)}
+            description12= {getDecr(0)}
+            degrees15={getDegrees(1)} 
+            icon15 = {getItemIcon(1)}
+            description15= {getDecr(1)} 
+            degrees18={getDegrees(2)} 
+            icon18 = {getItemIcon(2)}
+            description18= {getDecr(2)}  />
+      </Box>
+   </Modal>
+   <WeatherBlock  dayWeek={dayWeek2} 
+                  day={day2} 
+                  degrees={getDegrees(0)} 
+                  icon = {getItemIcon(0)} 
+                  onClick={handleOpen} />
+  <Modal
+      open={open}
+      onClose={handleClose}>
+       <Box sx={{...style }}>
+         <WeatherDetals 
+            name={props.city.name}
+            dayWeek={dayWeek2}
+            day={day2} 
+            degrees12={getDegrees(8)} 
+            icon12 = {getItemIcon(8)}
+            description12= {getDecr(8)}
+            degrees15={getDegrees(9)} 
+            icon15 = {getItemIcon(9)}
+            description15= {getDecr(9)} 
+            degrees18={getDegrees(10)} 
+            icon18 = {getItemIcon(10)}
+            description18= {getDecr(10)}  />
+      </Box>
+   </Modal>
+   
+   <WeatherBlock  dayWeek={dayWeek3} 
+                  day={day3} 
+                  degrees={getDegrees(16)} 
+                  icon = {getItemIcon(16)} />
+   <WeatherBlock  dayWeek={dayWeek4} 
+                  day={day4} 
+                  degrees={getDegrees(24)} 
+                  icon = {getItemIcon(24)} />
+   <WeatherBlock  dayWeek={dayWeek5} 
+                  day={day5} 
+                  degrees={getDegrees(32)} 
+                  icon = {getItemIcon(32)} />
+      </div>  
+   )
   }
   
 export default Days ;

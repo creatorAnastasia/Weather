@@ -1,11 +1,10 @@
 *{
-  margin: 0;
   padding: 0;
+ 
 }
 .app-wrapper{
 display: flex;
 justify-content: center;
-width: 100vw;
 top: 1%;
 flex-direction: column;
 

@@ -1,0 +1,39 @@
+.city{
+  text-align: center;
+  font-size: 1.5rem;
+}
+.dayWeek{
+  text-align: left;
+  font-size: 1.5rem;
+}
+.blockWrap{
+  display: flex;
+  justify-content: space-around;
+  overflow: scroll;
+}
+.block{
+  display: flex;
+  padding-left: 1rem;
+  border: outset rgb(15, 32, 39) 0.1rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+.weather{
+  display: flex;
+  margin-bottom: -1.5rem;
+}
+.day{
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+.degrees{
+  padding-top: 1.5rem;
+  font-size: 1.5rem;
+}
+.descr{
+  text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}

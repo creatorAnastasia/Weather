@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import City from './components/City/City'
 import Days from './components/Days/Days'
-
+import { Container } from '@mui/material';
 
 function App() {
   const listCity = [
@@ -30,14 +30,15 @@ function App() {
   const [city, setCity] = useState(listCity[1])
   
   return (
-  <div className="app-wrapper">
-    <City setCity={setCity}
-          city={city} 
-          listCity={listCity}/>
-    <Days city={city} />
-  </div>
+    <Container maxWidth="sm">
+      <div className="app-wrapper">
+        <City setCity={setCity}
+              city={city} 
+              listCity={listCity}
+        />
+        <Days city={city} />
+      </div>
+    </Container>
   );
 }
- // https://api.gismeteo.net/v2/weather/current/
-// https://api.openweathermap.org/data/2.5/weather?q=London&appid=a63740baaa8c5f06d8ce4273818d9d10
 export default App;

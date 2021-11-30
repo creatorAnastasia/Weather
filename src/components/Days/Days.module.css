@@ -1,18 +1,12 @@
 .days{
-  padding: 1rem;
-  background-color: rgba(8, 168, 48, 0.466);
+  padding:0.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+ 
 }
-.day{
-  padding: 0.5rem;
-  border-bottom: solid 0.1rem ;
-  font-size: 1.3rem;
-  
+img{
+  width: 6rem;
 }
-.date{
-  font-size: 0.9rem;
-  color: rgb(34, 36, 37);
-}
+

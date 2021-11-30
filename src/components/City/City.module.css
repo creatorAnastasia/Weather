@@ -1,30 +1,54 @@
 .citySticky{
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
-  position: sticky;
-  height: 4%;
+  position: sticky !important;
+  height: 3%;
   background-color: #fff;
  display: flex;
  justify-content: center;
 }
+header{
+  position: sticky;
+}
+
+.descrWrap{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -2rem;
+}
+.img img{
+  width: 7rem;
+}
+.img{
+  margin-top: -1rem;
+  justify-content: center;
+  display: flex;
+}
+.morning{
+  margin-top: 2rem;
+  color:rgb(15, 32, 39) ;
+}
+.evening{
+margin-top: 2rem;
+color:rgb(15, 32, 39) ;
+}
+.home{
+  display: flex;
+  
+}
 .degrees{
   text-align: center;
   font-size: 3rem;
-  padding: 1%;
-  background-color: rgba(1, 124, 32, 0.575);
+  padding: 1rem;
+ 
 }
 .descripWeather{
   text-align: center;
-  font-size: 1rem;
-  background-color: rgba(6, 158, 44, 0.486);
-  color:black;
-  padding: 1rem;
+  font-size: 1.1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-self:center;
+  padding-top: 1rem;
 }
 
-.text1{
-  margin-top: 0.6rem;
-  font-size: 1.8rem;
-}
-.icon{
-  margin-left: 1rem;
-}
