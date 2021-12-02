@@ -9,9 +9,13 @@ import TextField from '@mui/material/TextField';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
+import { nameRequest } from './NameRequest'
+
  
 const Search = (props) => {
-
+// async function upDateSity(){
+//   let data = await nameRequest(props.city)
+// }
 return(
 <>
   <Drawer  anchor={'top'}
@@ -33,7 +37,7 @@ return(
     ))}
     </List>
   </Drawer>
-  <div className={cl.text1}>{props.city.name}</div>
+  <div className={cl.text1}>{props.city}</div>
   <div className={cl.icon}>
     <Stack direction="row" spacing={1}>
       <IconButton onClick={props.toggleDrawer(true)}>

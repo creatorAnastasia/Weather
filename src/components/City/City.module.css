@@ -6,6 +6,8 @@
   background-color: #fff;
  display: flex;
  justify-content: center;
+ color: #2b4358;
+  font-weight:bold;
 }
 header{
   position: sticky;
@@ -13,7 +15,7 @@ header{
 
 .descrWrap{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: -2rem;
 }
 .img img{
@@ -25,12 +27,14 @@ header{
   display: flex;
 }
 .morning{
+  display: none;
   margin-top: 2rem;
   color:rgb(15, 32, 39) ;
 }
 .evening{
 margin-top: 2rem;
 color:rgb(15, 32, 39) ;
+display: none;
 }
 .home{
   display: flex;
@@ -40,7 +44,8 @@ color:rgb(15, 32, 39) ;
   text-align: center;
   font-size: 3rem;
   padding: 1rem;
- 
+  color: #2b4358;
+  margin-right: -1.5rem;
 }
 .descripWeather{
   text-align: center;
@@ -50,5 +55,6 @@ color:rgb(15, 32, 39) ;
   justify-content: center;
   align-self:center;
   padding-top: 1rem;
+  color:rgb(15, 32, 39) 
 }
 
