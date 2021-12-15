@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { getIcon } from '../Icon/Icon';
 import WeatherDetals from '../Days/WeatherDetals/WeatherDetals'
+import { capitalize } from '../capitalize'
 dayjs.locale('ru')
 
 const Days = (props)=> {
@@ -17,9 +18,6 @@ const Days = (props)=> {
   const day4 = dayjs().add(4, 'day').format('DD MMMM');
   const day5 = dayjs().add(5, 'day').format('DD MMMM');
   
-  function capitalize(s) {
-    return s.charAt(0).toUpperCase() + s.slice(1);
-  }
   const dayWeek2 = capitalize(dayjs().add(2, 'day').format('dddd'));
   const dayWeek3 = capitalize(dayjs().add(3, 'day').format('dddd'));
   const dayWeek4 = capitalize(dayjs().add(4, 'day').format('dddd'));

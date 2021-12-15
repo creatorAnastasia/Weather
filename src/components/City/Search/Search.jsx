@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import cl from './Search.module.css'
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -9,30 +9,74 @@ import TextField from '@mui/material/TextField';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import { nameRequest } from './NameRequest'
-
+import { nameRequest } from './nameRequest'
+import { capitalize } from '../../capitalize'
  
 const Search = (props) => {
-// async function upDateSity(){
-//   let data = await nameRequest(props.city)
-// }
-return(
+const [updateCityErr, setUpdateCityErr] = useState('')
+const [text, setText] = useState('')
+const handleChange = (event) => {
+  setText(event.target.value);
+};
+
+async function updateCity(city) {
+  try {
+    const data = await nameRequest(city)
+    props.setCity(data);
+    return true;
+  } catch {
+    setUpdateCityErr('Город не найден')
+    return false;
+  }
+}
+const closeDrawer = () => {
+  setText('');
+  props.toggleDrawer(false)
+}
+const searchKeyDown = async (ev) => {
+  setUpdateCityErr('')
+    const isEnter = ev.keyCode===13
+    if(isEnter) {
+      const RE_LETTERS = /^[а-яёА-ЯЁA-Za-z -]+$/
+      const isOnlyLetters = text.match(RE_LETTERS)
+        if (!isOnlyLetters) {
+          setUpdateCityErr('Недопустимые символы')
+          return;
+        }
+      const isOk = await updateCity(ev.target.value)
+      if (isOk){
+      const compare = (el) => el.name === text
+      if (!props.listCity.some(compare)){
+        props.setListCity([{ name: capitalize(ev.target.value), value: ev.target.value }, ...props.listCity ])
+      }
+      closeDrawer()
+    }
+  } 
+}
+
+return (
 <>
   <Drawer  anchor={'top'}
             open={props.state}
-            onClose={props.toggleDrawer(false)}>
+            onClose={closeDrawer}>
     <Box sx={{ width: 'auto' }}
           role="presentation"
-          onClick={props.toggleDrawer(false)}
-          onKeyDown={props.toggleDrawer(false)}>
+          onClick={closeDrawer}
+          onKeyDown={closeDrawer}>
     </Box>
-    <TextField  sx={{ width: 'auto', margin:'1rem' }} label="Введите название города"  />
+    <TextField  sx={{ width: 'auto', marginTop:'1rem' }} label="Введите название города"  
+                onKeyDown={searchKeyDown}
+                onChange={handleChange}
+                value={text}
+                error={updateCityErr.length > 0}
+                helperText = {updateCityErr} />
     <List> {props.listCity.map(({ name, value }) => (
       <ListItem 
-        onClick={props.toggleDrawer(false)}
+        onClick={closeDrawer}
         button key={name}
       >
-        <ListItemText primary={name} onClick={() => props.setCity({ name, value })} />
+        <ListItemText primary={name} 
+                      onClick={() => updateCity(value)} />
       </ListItem>
     ))}
     </List>
@@ -40,7 +84,7 @@ return(
   <div className={cl.text1}>{props.city}</div>
   <div className={cl.icon}>
     <Stack direction="row" spacing={1}>
-      <IconButton onClick={props.toggleDrawer(true)}>
+      <IconButton onClick={() => props.toggleDrawer(true)}>
         <SearchOutlinedIcon />
       </IconButton>
     </Stack>

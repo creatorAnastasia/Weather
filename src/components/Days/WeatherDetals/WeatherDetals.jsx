@@ -1,11 +1,9 @@
 import cl from './WeatherDetals.module.css';
+import { capitalize } from '../../capitalize'
 
 
 const WeatherDetals = (props)=> {
   const { data } = props
-  function capitalize(s) {
-    return s.charAt(0).toUpperCase() + s.slice(1);
-  }
   return (
   <div>
   <div className={cl.city}>{data.name}</div>
