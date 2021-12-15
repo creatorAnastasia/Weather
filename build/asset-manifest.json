@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.49588638.chunk.css",
+    "main.js": "/static/js/main.dbeda428.chunk.js",
+    "main.js.map": "/static/js/main.dbeda428.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5231b694.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5231b694.js.map",
+    "static/js/2.2a44ef18.chunk.js": "/static/js/2.2a44ef18.chunk.js",
+    "static/js/2.2a44ef18.chunk.js.map": "/static/js/2.2a44ef18.chunk.js.map",
+    "static/js/3.32262af4.chunk.js": "/static/js/3.32262af4.chunk.js",
+    "static/js/3.32262af4.chunk.js.map": "/static/js/3.32262af4.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.49588638.chunk.css.map": "/static/css/main.49588638.chunk.css.map",
+    "static/js/2.2a44ef18.chunk.js.LICENSE.txt": "/static/js/2.2a44ef18.chunk.js.LICENSE.txt",
+    "static/media/cloudy-day.7fb7ecfc.svg": "/static/media/cloudy-day.7fb7ecfc.svg",
+    "static/media/day.c33ef664.svg": "/static/media/day.c33ef664.svg",
+    "static/media/drizzle.44fb8223.svg": "/static/media/drizzle.44fb8223.svg",
+    "static/media/rainy.130d6250.svg": "/static/media/rainy.130d6250.svg",
+    "static/media/snowy.dce3f5e7.svg": "/static/media/snowy.dce3f5e7.svg",
+    "static/media/thunder.19ff3c30.svg": "/static/media/thunder.19ff3c30.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5231b694.js",
+    "static/js/2.2a44ef18.chunk.js",
+    "static/css/main.49588638.chunk.css",
+    "static/js/main.dbeda428.chunk.js"
+  ]
+}
